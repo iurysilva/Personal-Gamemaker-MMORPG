@@ -8,6 +8,8 @@ keys[KEY_RIGHT] = false
 keys[KEY_UP] = false
 keys[KEY_DOWN] = false
 
+vertical_speed = 0
 horizontal_speed = 0
 walking_speed = 4
+
 name = ""
