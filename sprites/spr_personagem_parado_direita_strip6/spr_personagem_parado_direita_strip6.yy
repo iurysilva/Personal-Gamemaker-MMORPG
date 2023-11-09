@@ -78,7 +78,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "teste multiplayer",
-    "path": "teste multiplayer.yyp",
+    "name": "Sprites",
+    "path": "folders/Sprites.yy",
   },
 }

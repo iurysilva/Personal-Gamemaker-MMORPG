@@ -24,9 +24,9 @@ if server == event_id{
 	if (type == network_type_disconnect){
 		var player = clients[? sock]
 		
-		for (var s = 0; s < ds_list_size(sockets); s++){
-			var sock = ds_list_find_value(sockets, s)	
-			SendRemoteEntity(sock, ENTITY_DESTROY, player.id, player.x)
+		for (var i = 0; i < ds_list_size(sockets); i++){
+			var s = ds_list_find_value(sockets, i)	
+			SendRemoteEntity(s, ENTITY_DESTROY, player.id, player.x)
 		}
 		
 		if(instance_exists(player)){
@@ -56,5 +56,12 @@ else if event_id != global.socket{
 				keys[key] = state 
 			}
 		break
+		
+		case PACKET_NAME:
+			player.name = buffer_read(buff, buffer_string)
+			for (var s = 0; s < ds_list_size(sockets); s++){
+				var sock = ds_list_find_value(sockets, s)	
+				SendRemoteEntity(sock, ENTITY_NAME, player.id, player.name)
+			}
 	}
 }

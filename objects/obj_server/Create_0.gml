@@ -3,6 +3,7 @@
 
 #macro PACKET_KEY 0
 #macro PACKET_ENTITY 1
+#macro PACKET_NAME 2
 
 #macro ENTITY_X 0
 #macro ENTITY_Y 1

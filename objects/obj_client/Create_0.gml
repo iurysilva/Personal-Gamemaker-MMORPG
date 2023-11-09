@@ -8,4 +8,5 @@ if (connect < 0){
 	game_restart()
 }
 
+SendName(global.name == "" ? "Desconhecido" : global.name)
 entities = ds_map_create()
