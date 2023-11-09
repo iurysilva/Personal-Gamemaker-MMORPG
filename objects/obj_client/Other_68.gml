@@ -25,6 +25,9 @@ if socket == event_id{
 				case ENTITY_SPRITE: 
 					p.sprite_index = buffer_read(buff, buffer_u16)
 				break
+				case ENTITY_NAME:
+					p.name = buffer_read(buff, buffer_string)
+				break
 				case ENTITY_DESTROY: 
 					buffer_read(buff, buffer_u8)
 					ds_map_delete(entities, entity_id)

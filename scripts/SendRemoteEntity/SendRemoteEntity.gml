@@ -1,9 +1,3 @@
-#macro ENTITY_X 0
-#macro ENTITY_Y 1
-#macro ENTITY_NAME 2
-#macro ENTITY_SPRITE 3
-#macro ENTITY_DESTROY 4
-
 function SendRemoteEntity(sock, entity_information_type, entity_id, entity_information){
 	buffer_seek(buffer, buffer_seek_start, 0)
 	buffer_write(buffer, buffer_u8, PACKET_ENTITY)
