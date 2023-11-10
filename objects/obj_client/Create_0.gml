@@ -10,3 +10,8 @@ if (connect < 0){
 
 SendName(global.name == "" ? "Desconhecido" : global.name)
 entities = ds_map_create()
+
+my_id = -1
+target = noone
+
+SendMyID()

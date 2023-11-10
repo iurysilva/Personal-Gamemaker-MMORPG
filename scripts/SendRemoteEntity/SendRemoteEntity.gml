@@ -20,6 +20,9 @@ function SendRemoteEntity(sock, entity_information_type, entity_id, entity_infor
 		case ENTITY_DESTROY: 
 			buffer_write(buffer, buffer_u8, entity_information)
 		break
+		case ENTITY_MYID:
+			buffer_write(buffer, buffer_u8, entity_information)
+		break
 	}
 	
 	network_send_packet(sock, buffer, buffer_tell(buffer))

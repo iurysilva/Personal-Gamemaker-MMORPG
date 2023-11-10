@@ -10,6 +10,7 @@
     {"id":{"name":"obj_server","path":"objects/obj_server/obj_server.yy",},"order":1,},
     {"id":{"name":"spr_text_box","path":"sprites/spr_text_box/spr_text_box.yy",},"order":0,},
     {"id":{"name":"obj_client","path":"objects/obj_client/obj_client.yy",},"order":2,},
+    {"id":{"name":"SendMyID","path":"scripts/SendMyID/SendMyID.yy",},"order":2,},
     {"id":{"name":"obj_menu","path":"objects/obj_menu/obj_menu.yy",},"order":0,},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":3,},
     {"id":{"name":"SendName","path":"scripts/SendName/SendName.yy",},"order":1,},
@@ -17,6 +18,7 @@
     {"id":{"name":"rm_menu_name","path":"rooms/rm_menu_name/rm_menu_name.yy",},"order":2,},
     {"id":{"name":"obj_name_text_box","path":"objects/obj_name_text_box/obj_name_text_box.yy",},"order":5,},
     {"id":{"name":"spr_grama","path":"sprites/spr_grama/spr_grama.yy",},"order":2,},
+    {"id":{"name":"SendPlayerID","path":"scripts/SendPlayerID/SendPlayerID.yy",},"order":1,},
     {"id":{"name":"rm_menu","path":"rooms/rm_menu/rm_menu.yy",},"order":0,},
   ],
   "Options": [

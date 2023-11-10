@@ -35,7 +35,14 @@ if socket == event_id{
 						instance_destroy()	
 					}
 				break
+				case ENTITY_MYID:
+					p.my_id = buffer_read(buff, buffer_u8)
+				break
 			}			
+		break
+		
+		case PACKET_MYID:
+			my_id = buffer_read(buff, buffer_u8)
 		break
 	}
 }

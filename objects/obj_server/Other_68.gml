@@ -8,6 +8,7 @@ if server == event_id{
 		ds_list_add(sockets, sock)
 		
 		var player = instance_create_layer(100, 100+32*sock, "Instances", obj_player)
+		player.my_id = sock
 		ds_map_add(clients, sock, player)
 		for (var i = 0; i< instance_number(obj_player); i++){
 			var pl = instance_find(obj_player, i)
@@ -17,6 +18,7 @@ if server == event_id{
 				SendRemoteEntity(sock, ENTITY_Y, pl.id, pl.y)
 				SendRemoteEntity(sock, ENTITY_NAME, pl.id, pl.name)
 				SendRemoteEntity(sock, ENTITY_SPRITE, pl.id, pl.sprite_index)
+				SendRemoteEntity(sock, ENTITY_MYID, pl.id, pl.my_id)
 			}
 		}
 	}
@@ -63,5 +65,8 @@ else if event_id != global.socket{
 				var sock = ds_list_find_value(sockets, s)	
 				SendRemoteEntity(sock, ENTITY_NAME, player.id, player.name)
 			}
+		case PACKET_MYID:
+			SendPlayerID(sock)
+		break
 	}
 }

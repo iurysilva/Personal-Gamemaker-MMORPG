@@ -12,4 +12,6 @@ vertical_speed = 0
 horizontal_speed = 0
 walking_speed = 4
 
+my_id = -1
+
 name = ""
