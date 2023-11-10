@@ -10,7 +10,7 @@ keys[KEY_DOWN] = false
 
 vertical_speed = 0
 horizontal_speed = 0
-walking_speed = 4
+walking_speed = 2
 
 my_id = -1
 

@@ -15,3 +15,5 @@ my_id = -1
 target = noone
 
 SendMyID()
+
+past_sprite = sprite_index

@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_player",
   "spriteId": {
-    "name": "spr_personagem_parado_direita_strip6",
-    "path": "sprites/spr_personagem_parado_direita_strip6/spr_personagem_parado_direita_strip6.yy",
+    "name": "spr_character_still_down",
+    "path": "sprites/spr_character_still_down/spr_character_still_down.yy",
   },
   "solid": false,
   "visible": true,

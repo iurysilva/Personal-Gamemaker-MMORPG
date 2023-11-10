@@ -1,33 +1,41 @@
-if (keyboard_check_pressed(vk_left)){
+if (keyboard_check(ord("A"))){
 	SendKey(KEY_LEFT, true)
+	SendSprite(spr_character_running_left)
 }
 
-if (keyboard_check_released(vk_left)){
+if (keyboard_check_released(ord("A"))){
 	SendKey(KEY_LEFT, false)	
+	SendSprite(spr_character_still_left)	
 }
  
- if (keyboard_check_pressed(vk_right)){
+ if (keyboard_check(ord("D"))){
 	SendKey(KEY_RIGHT, true)	
+	SendSprite(spr_character_running_right)
 }
 
-if (keyboard_check_released(vk_right)){
+if (keyboard_check_released(ord("D"))){
 	SendKey(KEY_RIGHT, false)	
+	SendSprite(spr_character_still_right)
 }
  
-if (keyboard_check_pressed(vk_up)){
+if (keyboard_check(ord("W"))){
 	SendKey(KEY_UP, true)
+	SendSprite(spr_character_running_up)
 }
 
-if (keyboard_check_released(vk_up)){
+if (keyboard_check_released(ord("W"))){
 	SendKey(KEY_UP, false)	
+	SendSprite(spr_character_still_up)
 }
  
- if (keyboard_check_pressed(vk_down)){
-	SendKey(KEY_DOWN, true)	
+ if (keyboard_check(ord("S"))){
+	SendKey(KEY_DOWN, true)
+	SendSprite(spr_character_running_down)
 }
 
-if (keyboard_check_released(vk_down)){
+if (keyboard_check_released(ord("S"))){
 	SendKey(KEY_DOWN, false)	
+	SendSprite(spr_character_still_down)
 }
 
 for (var i = 0; i < instance_number(obj_remote_entity); i++){

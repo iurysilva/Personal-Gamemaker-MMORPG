@@ -1,10 +1,11 @@
 #macro PORT 45000
-#macro MAX_CLIENTS 4
+#macro MAX_CLIENTS 8
 
 #macro PACKET_KEY 0
 #macro PACKET_ENTITY 1
 #macro PACKET_NAME 2
 #macro PACKET_MYID 3
+#macro PACKET_SPRITE 4
 
 #macro ENTITY_X 0
 #macro ENTITY_Y 1

@@ -68,5 +68,12 @@ else if event_id != global.socket{
 		case PACKET_MYID:
 			SendPlayerID(sock)
 		break
+		
+		case PACKET_SPRITE:
+			player.sprite_index = buffer_read(buff, buffer_u16)
+			for (var s = 0; s < ds_list_size(sockets); s++){
+				var sock = ds_list_find_value(sockets, s)	
+				SendRemoteEntity(sock, ENTITY_SPRITE, player.id, player.sprite_index)
+			}
 	}
 }
