@@ -1,79 +1,79 @@
-var event_id = async_load[? "id"]
+var _event_id = async_load[? "id"]
 
-if server == event_id{
-	var type = async_load[? "type"]
-	var sock = async_load[? "socket"]
+if server == _event_id{
+	var _type = async_load[? "type"]
+	var _sock = async_load[? "socket"]
 	
-	if (type == network_type_connect){
-		ds_list_add(sockets, sock)
+	if (_type == network_type_connect){
+		ds_list_add(sockets, _sock)
 		
-		var player = instance_create_layer(100, 100+32*sock, "Instances", obj_player)
-		player.my_id = sock
-		ds_map_add(clients, sock, player)
-		for (var i = 0; i< instance_number(obj_player); i++){
-			var pl = instance_find(obj_player, i)
-			for (var s = 0; s < ds_list_size(sockets); s++){
-				var sock = ds_list_find_value(sockets, s)	
-				SendRemoteEntity(sock, ENTITY_X, pl.id, pl.x)
-				SendRemoteEntity(sock, ENTITY_Y, pl.id, pl.y)
-				SendRemoteEntity(sock, ENTITY_NAME, pl.id, pl.name)
-				SendRemoteEntity(sock, ENTITY_SPRITE, pl.id, pl.sprite_index)
-				SendRemoteEntity(sock, ENTITY_MYID, pl.id, pl.my_id)
+		var _player = instance_create_layer(100, 100+32*_sock, "Instances", obj_player)
+		_player.my_id = _sock
+		ds_map_add(clients, _sock, _player)
+		for (var _i = 0; _i< instance_number(obj_player); _i++){
+			var _client_player = instance_find(obj_player, _i)
+			for (var _s = 0; _s < ds_list_size(sockets); _s++){
+				var _client_sock = ds_list_find_value(sockets, _s)	
+				scr_send_remote_entity(_client_sock, ENTITY_X, _client_player.id, _client_player.x)
+				scr_send_remote_entity(_client_sock, ENTITY_Y, _client_player.id, _client_player.y)
+				scr_send_remote_entity(_client_sock, ENTITY_NAME, _client_player.id, _client_player.name)
+				scr_send_remote_entity(_client_sock, ENTITY_SPRITE, _client_player.id, _client_player.sprite_index)
+				scr_send_remote_entity(_client_sock, ENTITY_MYID, _client_player.id, _client_player.my_id)
 			}
 		}
 	}
 	
-	if (type == network_type_disconnect){
-		var player = clients[? sock]
+	if (_type == network_type_disconnect){
+		var _player = clients[? _sock]
 		
-		for (var i = 0; i < ds_list_size(sockets); i++){
-			var s = ds_list_find_value(sockets, i)	
-			SendRemoteEntity(s, ENTITY_DESTROY, player.id, player.x)
+		for (var _i = 0; _i < ds_list_size(sockets); _i++){
+			var _s = ds_list_find_value(sockets, _i)	
+			scr_send_remote_entity(_s, ENTITY_DESTROY, _player.id, _player.x)
 		}
 		
-		if(instance_exists(player)){
-			with(player){
+		if(instance_exists(_player)){
+			with(_player){
 				instance_destroy()	
 			}
 		}
 		
-		ds_list_delete(sockets, ds_list_find_index(sockets, sock))
-		ds_map_delete(clients, sock)
+		ds_list_delete(sockets, ds_list_find_index(sockets, _sock))
+		ds_map_delete(clients, _sock)
 	}
 }
 
-else if event_id != global.socket{
-	var sock = async_load[? "id"]
-	var buff = async_load[? "buffer"]
+else if _event_id != global.socket{
+	var _sock = async_load[? "id"]
+	var _buff = async_load[? "buffer"]
 	
-	buffer_seek(buff, buffer_seek_start, 0)
-	var cmd = buffer_read(buff, buffer_u8)
+	buffer_seek(_buff, buffer_seek_start, 0)
+	var _packet_type = buffer_read(_buff, buffer_u8)
 	
-	var player = clients[? sock]
-	switch (cmd){
+	var _player = clients[? _sock]
+	switch (_packet_type){
 		case PACKET_KEY:
-			with(player){
-				var key = buffer_read(buff, buffer_u8)
-				var state = buffer_read(buff, buffer_u8)
-				keys[key] = state 
+			with(_player){
+				var _key = buffer_read(_buff, buffer_u8)
+				var _state = buffer_read(_buff, buffer_u8)
+				keys[_key] = _state 
 			}
 		break
 		
 		case PACKET_NAME:
-			player.name = buffer_read(buff, buffer_string)
-			for (var s = 0; s < ds_list_size(sockets); s++){
-				var sock = ds_list_find_value(sockets, s)	
-				SendRemoteEntity(sock, ENTITY_NAME, player.id, player.name)
+			_player.name = buffer_read(_buff, buffer_string)
+			for (var _s = 0; _s < ds_list_size(sockets); _s++){
+				var _client_sock = ds_list_find_value(sockets, _s)	
+				scr_send_remote_entity(_client_sock, ENTITY_NAME, _player.id, _player.name)
 			}
 		case PACKET_MYID:
-			SendPlayerID(sock)
+			scr_send_player_id(_sock)
 		break
 		
 		case PACKET_SPRITE:
-			player.sprite_index = buffer_read(buff, buffer_u16)
-			for (var s = 0; s < ds_list_size(sockets); s++){
-				var sock = ds_list_find_value(sockets, s)	
-				SendRemoteEntity(sock, ENTITY_SPRITE, player.id, player.sprite_index)
+			_player.sprite_index = buffer_read(_buff, buffer_u16)
+			for (var _s = 0; _s < ds_list_size(sockets); _s++){
+				var _client_sock = ds_list_find_value(sockets, _s)	
+				scr_send_remote_entity(_client_sock, ENTITY_SPRITE, _player.id, _player.sprite_index)
 			}
 	}
 }

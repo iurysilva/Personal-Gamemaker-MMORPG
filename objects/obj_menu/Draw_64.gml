@@ -1,6 +1,6 @@
 draw_set_halign(fa_center)
-for (var i = 0; i < array_length_1d(menu); i++){
-	draw_set_color(current_index==i?c_green:c_white)
-	draw_text(room_width/2, 100+32*i, menu[i])
+for (var _i = 0; _i < array_length(menu); _i++){
+	draw_set_color(current_index==_i?c_green:c_white)
+	draw_text(room_width/2, 100+32*_i, menu[_i])
 }
 draw_set_halign(fa_left)

@@ -1,9 +1,9 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "SendSprite",
-  "isDnD": false,
+  "name": "scr_send_sprite",
   "isCompatibility": false,
+  "isDnD": false,
   "parent": {
     "name": "ClientToServer",
     "path": "folders/Scripts/ClientToServer.yy",

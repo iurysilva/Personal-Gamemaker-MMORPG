@@ -1,52 +1,52 @@
 if (keyboard_check(ord("A"))){
-	SendKey(KEY_LEFT, true)
-	SendSprite(spr_character_running_left)
+	scr_send_key(KEY_LEFT, true)
+	scr_send_sprite(spr_character_running_left)
 }
 
 if (keyboard_check_released(ord("A"))){
-	SendKey(KEY_LEFT, false)	
-	SendSprite(spr_character_still_left)	
+	scr_send_key(KEY_LEFT, false)	
+	scr_send_sprite(spr_character_still_left)	
 }
  
  if (keyboard_check(ord("D"))){
-	SendKey(KEY_RIGHT, true)	
-	SendSprite(spr_character_running_right)
+	scr_send_key(KEY_RIGHT, true)	
+	scr_send_sprite(spr_character_running_right)
 }
 
 if (keyboard_check_released(ord("D"))){
-	SendKey(KEY_RIGHT, false)	
-	SendSprite(spr_character_still_right)
+	scr_send_key(KEY_RIGHT, false)	
+	scr_send_sprite(spr_character_still_right)
 }
  
 if (keyboard_check(ord("W"))){
-	SendKey(KEY_UP, true)
-	SendSprite(spr_character_running_up)
+	scr_send_key(KEY_UP, true)
+	scr_send_sprite(spr_character_running_up)
 }
 
 if (keyboard_check_released(ord("W"))){
-	SendKey(KEY_UP, false)	
-	SendSprite(spr_character_still_up)
+	scr_send_key(KEY_UP, false)	
+	scr_send_sprite(spr_character_still_up)
 }
  
  if (keyboard_check(ord("S"))){
-	SendKey(KEY_DOWN, true)
-	SendSprite(spr_character_running_down)
+	scr_send_key(KEY_DOWN, true)
+	scr_send_sprite(spr_character_running_down)
 }
 
 if (keyboard_check_released(ord("S"))){
-	SendKey(KEY_DOWN, false)	
-	SendSprite(spr_character_still_down)
+	scr_send_key(KEY_DOWN, false)	
+	scr_send_sprite(spr_character_still_down)
 }
 
-for (var i = 0; i < instance_number(obj_remote_entity); i++){
-	var instance = instance_find(obj_remote_entity, i)
-	if (my_id == instance.my_id){
-		target = instance
+for (var _i = 0; _i < instance_number(obj_remote_entity); _i++){
+	var _instance = instance_find(obj_remote_entity, _i)
+	if (my_id == _instance.my_id){
+		target = _instance
 		break
 	}
 }
 
 if (target != noone){
-	camera_set_view_target(view_camera[0], instance)
+	camera_set_view_target(view_camera[0], target)
 	camera_set_view_border(view_camera[0], view_wport[0]/2, view_hport[0]/2)
 }

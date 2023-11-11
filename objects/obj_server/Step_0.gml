@@ -1,8 +1,8 @@
-for (var i = 0; i< instance_number(obj_player); i++){
-	var pl = instance_find(obj_player, i)
-	for (var s = 0; s < ds_list_size(sockets); s++){
-		var sock = ds_list_find_value(sockets, s)	
-		SendRemoteEntity(sock, ENTITY_X, pl.id, pl.x)
-		SendRemoteEntity(sock, ENTITY_Y, pl.id, pl.y)
+for (var _i = 0; _i< instance_number(obj_player); _i++){
+	var _client_player = instance_find(obj_player, _i)
+	for (var _s = 0; _s < ds_list_size(sockets); _s++){
+		var _client_sock = ds_list_find_value(sockets, _s)	
+		scr_send_remote_entity(_client_sock, ENTITY_X, _client_player.id, _client_player.x)
+		scr_send_remote_entity(_client_sock, ENTITY_Y, _client_player.id, _client_player.y)
 	}
 }

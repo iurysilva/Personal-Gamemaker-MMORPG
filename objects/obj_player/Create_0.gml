@@ -15,3 +15,5 @@ walking_speed = 2
 my_id = -1
 
 name = ""
+
+state = ""

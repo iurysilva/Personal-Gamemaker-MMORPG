@@ -5,7 +5,7 @@ if (keyboard_check_pressed(vk_up)){
 	current_index --
 }
 
-current_index = clamp(current_index, 0, array_length_1d(menu) - 1)
+current_index = clamp(current_index, 0, array_length(menu) - 1)
 
 if (keyboard_check_pressed(vk_enter)){
 	switch(current_index){
