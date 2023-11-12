@@ -75,5 +75,20 @@ else if _event_id != global.socket{
 				var _client_sock = ds_list_find_value(sockets, _s)	
 				scr_send_remote_entity(_client_sock, ENTITY_SPRITE, _player.id, _player.sprite_index)
 			}
+		break
+			
+		case PACKET_DASH:
+			var _is_dashing = buffer_read(_buff, buffer_bool)
+			if _is_dashing{
+				var _mouse_x = buffer_read(_buff, buffer_s16)
+				var _mouse_y = buffer_read(_buff, buffer_s16)
+				_player.dash_direction = point_direction(_player.x, _player.y, _mouse_x, _mouse_y)
+				_player.state = scr_character_dashing
+			}
+			else{
+				_player.dash_direction = -1
+				_player.state = scr_character_walking	
+			}
+		break
 	}
 }

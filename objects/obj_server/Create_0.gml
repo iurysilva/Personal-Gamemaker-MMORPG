@@ -6,6 +6,7 @@
 #macro PACKET_NAME 2
 #macro PACKET_MYID 3
 #macro PACKET_SPRITE 4
+#macro PACKET_DASH 5
 
 #macro ENTITY_X 0
 #macro ENTITY_Y 1
@@ -13,6 +14,9 @@
 #macro ENTITY_SPRITE 3
 #macro ENTITY_DESTROY 4
 #macro ENTITY_MYID 5
+
+#macro STATE_WALKING 1
+#macro STATE_DASHING 2
 
 server = network_create_server(network_socket_tcp, PORT, MAX_CLIENTS)
 buffer = buffer_create(16384, buffer_grow, 1)

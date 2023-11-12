@@ -46,6 +46,11 @@ for (var _i = 0; _i < instance_number(obj_remote_entity); _i++){
 	}
 }
 
+if (mouse_check_button_pressed(mb_right)){
+	alarm[0] = 8
+	scr_send_dash(true, mouse_x, mouse_y)
+}
+
 if (target != noone){
 	camera_set_view_target(view_camera[0], target)
 	camera_set_view_border(view_camera[0], view_wport[0]/2, view_hport[0]/2)
