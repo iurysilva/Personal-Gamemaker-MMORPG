@@ -1,0 +1,9 @@
+{
+  "extensionId": {
+    "name": "Platform_Sprite_Pack",
+    "path": "extensions/Platform_Sprite_Pack/Platform_Sprite_Pack.yy"
+  },
+  "resourceVersion": "1.0",
+  "resourceType": "GMExtensionConfigSet",
+  "configurables": null
+}
