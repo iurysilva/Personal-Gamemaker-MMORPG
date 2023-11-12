@@ -38,8 +38,8 @@ if (keyboard_check_released(ord("S"))){
 	scr_send_sprite(spr_character_still_down)
 }
 
-for (var _i = 0; _i < instance_number(obj_remote_entity); _i++){
-	var _instance = instance_find(obj_remote_entity, _i)
+for (var _i = 0; _i < instance_number(obj_remote_player); _i++){
+	var _instance = instance_find(obj_remote_player, _i)
 	if (my_id == _instance.my_id){
 		target = _instance
 		break

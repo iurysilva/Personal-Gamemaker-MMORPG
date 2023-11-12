@@ -14,11 +14,11 @@ if server == _event_id{
 			var _client_player = instance_find(obj_player, _i)
 			for (var _s = 0; _s < ds_list_size(sockets); _s++){
 				var _client_sock = ds_list_find_value(sockets, _s)	
-				scr_send_remote_entity(_client_sock, ENTITY_X, _client_player.id, _client_player.x)
-				scr_send_remote_entity(_client_sock, ENTITY_Y, _client_player.id, _client_player.y)
-				scr_send_remote_entity(_client_sock, ENTITY_NAME, _client_player.id, _client_player.name)
-				scr_send_remote_entity(_client_sock, ENTITY_SPRITE, _client_player.id, _client_player.sprite_index)
-				scr_send_remote_entity(_client_sock, ENTITY_MYID, _client_player.id, _client_player.my_id)
+				scr_send_remote_player(_client_sock, ENTITY_X, _client_player.id, _client_player.x)
+				scr_send_remote_player(_client_sock, ENTITY_Y, _client_player.id, _client_player.y)
+				scr_send_remote_player(_client_sock, ENTITY_NAME, _client_player.id, _client_player.name)
+				scr_send_remote_player(_client_sock, ENTITY_SPRITE, _client_player.id, _client_player.sprite_index)
+				scr_send_remote_player(_client_sock, ENTITY_MYID, _client_player.id, _client_player.my_id)
 			}
 		}
 	}
@@ -28,7 +28,7 @@ if server == _event_id{
 		
 		for (var _i = 0; _i < ds_list_size(sockets); _i++){
 			var _s = ds_list_find_value(sockets, _i)	
-			scr_send_remote_entity(_s, ENTITY_DESTROY, _player.id, _player.x)
+			scr_send_remote_player(_s, ENTITY_DESTROY, _player.id, _player.x)
 		}
 		
 		if(instance_exists(_player)){
@@ -63,7 +63,7 @@ else if _event_id != global.socket{
 			_player.name = buffer_read(_buff, buffer_string)
 			for (var _s = 0; _s < ds_list_size(sockets); _s++){
 				var _client_sock = ds_list_find_value(sockets, _s)	
-				scr_send_remote_entity(_client_sock, ENTITY_NAME, _player.id, _player.name)
+				scr_send_remote_player(_client_sock, ENTITY_NAME, _player.id, _player.name)
 			}
 		case PACKET_MYID:
 			scr_send_player_id(_sock)
@@ -73,7 +73,7 @@ else if _event_id != global.socket{
 			_player.sprite_index = buffer_read(_buff, buffer_u16)
 			for (var _s = 0; _s < ds_list_size(sockets); _s++){
 				var _client_sock = ds_list_find_value(sockets, _s)	
-				scr_send_remote_entity(_client_sock, ENTITY_SPRITE, _player.id, _player.sprite_index)
+				scr_send_remote_player(_client_sock, ENTITY_SPRITE, _player.id, _player.sprite_index)
 			}
 		break
 			
