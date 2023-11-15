@@ -27,7 +27,7 @@
 #macro KEY_DOWN 3
 
 socket = network_create_socket(network_socket_udp)
-buffer = buffer_create(100, buffer_fixed, 100)
+buffer = buffer_create(100, buffer_grow, 1)
 server_address = "127.0.0.1"
 server_port = 45000
 

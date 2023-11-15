@@ -11,7 +11,7 @@ if (keyboard_check_released(ord("A"))){
 	scr_send_location(_player.x, _player.y, spr_character_still_left)	
 }
  
- if (keyboard_check(ord("D"))){
+	if (keyboard_check(ord("D"))){
 	_player.keys[KEY_RIGHT] = true
 	_player.sprite_index = spr_character_running_right
 	scr_send_location(_player.x, _player.y, spr_character_running_right)
@@ -35,7 +35,7 @@ if (keyboard_check_released(ord("W"))){
 	scr_send_location(_player.x, _player.y, spr_character_still_up)
 }
  
- if (keyboard_check(ord("S"))){
+	if (keyboard_check(ord("S"))){
 	_player.keys[KEY_DOWN] = true
 	_player.sprite_index = spr_character_running_down
 	scr_send_location(_player.x, _player.y, spr_character_running_down)
@@ -47,20 +47,20 @@ if (keyboard_check_released(ord("S"))){
 	scr_send_location(_player.x, _player.y, spr_character_still_down)
 }
 
-for (var _i = 0; _i < instance_number(obj_player); _i++){
-	var _instance = instance_find(obj_player, _i)
-	if (my_id == _instance.my_id){
-		target = _instance
-		break
-	}
-}
 
 if (mouse_check_button_pressed(mb_right)){
 	alarm[0] = 8
-	scr_send_dash(true, mouse_x, mouse_y)
+	_player.client_mouse_x = mouse_x
+	_player.client_mouse_y = mouse_y
+	_player.state = scr_player_dashing
 }
 
-if (target != noone){
-	camera_set_view_target(view_camera[0], target)
-	camera_set_view_border(view_camera[0], view_wport[0]/2, view_hport[0]/2)
+if (_player and _player.state == scr_player_dashing){
+	scr_send_location(_player.x, _player.y, _player.sprite_index)
 }
+
+if (_player){
+	camera_set_view_target(view_camera[0], _player)
+	camera_set_view_border(view_camera[0], view_wport[0]/2, view_hport[0]/2)	
+}	
+		

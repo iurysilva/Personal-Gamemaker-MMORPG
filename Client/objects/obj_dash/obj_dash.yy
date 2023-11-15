@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "RemoteObjects",
-    "path": "folders/Objetos/RemoteObjects.yy",
+    "name": "PlayerObjects",
+    "path": "folders/Objetos/PlayerObjects.yy",
   },
   "parentObjectId": null,
   "persistent": false,

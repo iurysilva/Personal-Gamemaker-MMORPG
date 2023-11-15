@@ -6,6 +6,8 @@ vertical_speed = 0
 horizontal_speed = 0
 walking_speed = 2
 
+client_mouse_x = -1
+client_mouse_y = -1
 dash_direction = -1
 dash_velocity = 6
 

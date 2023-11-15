@@ -1,11 +1,11 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scr_send_dash",
+  "name": "scr_player_dashing",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "ClientToServer",
-    "path": "folders/Scripts/ClientToServer.yy",
+    "name": "PlayerScripts",
+    "path": "folders/Scripts/PlayerScripts.yy",
   },
 }
