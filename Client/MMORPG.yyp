@@ -37,6 +37,7 @@
   },
   "resources": [
     {"id":{"name":"scr_player_dashing","path":"scripts/scr_player_dashing/scr_player_dashing.yy",},},
+    {"id":{"name":"scr_send_dash","path":"scripts/scr_send_dash/scr_send_dash.yy",},},
     {"id":{"name":"rm_game","path":"rooms/rm_game/rm_game.yy",},},
     {"id":{"name":"spr_character_still_right","path":"sprites/spr_character_still_right/spr_character_still_right.yy",},},
     {"id":{"name":"scr_player_walking","path":"scripts/scr_player_walking/scr_player_walking.yy",},},

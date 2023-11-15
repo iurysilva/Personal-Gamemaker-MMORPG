@@ -3,6 +3,7 @@ import PacketTypes from './Macros/PacketTypes.js';
 import HandleConnectionPacket from './PacketHandling/HandleConnectionPacket.js';
 import HandleLocationPacket from './PacketHandling/HandleLocationPacket.js';
 import HandleDisconnectionPacket from './PacketHandling/HandleDisconnectionPacket.js';
+import HandleDashPacket from './PacketHandling/HandleDashPacket.js';
 
 var players = {}
 var clients = {}
@@ -22,7 +23,12 @@ server.on("message", (message, client) => {
 
         case PacketTypes.DISCONNECTION:
             HandleDisconnectionPacket(server, client, packet, clients, players)
-    }
+        break
+
+        case PacketTypes.DASH:
+            HandleDashPacket(server, client, packet, clients, players)
+        break
+        }
 })
 
 

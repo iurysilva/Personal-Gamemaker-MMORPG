@@ -56,7 +56,10 @@ if (mouse_check_button_pressed(mb_right)){
 }
 
 if (_player and _player.state == scr_player_dashing){
+	var _obj_dash = instance_create_layer(_player.x, _player.y, "Instances", obj_dash)
+	_obj_dash.sprite_index = _player.sprite_index
 	scr_send_location(_player.x, _player.y, _player.sprite_index)
+	scr_send_dash(_player.x, _player.y, _player.sprite_index)
 }
 
 if (_player){

@@ -3,7 +3,7 @@ const PacketTypes = {
     DISCONNECTION: 1,
     NAME: 2,
     LOCATION: 3,
-    SPRITE: 4
+    DASH: 4
 }
 
 export default PacketTypes
