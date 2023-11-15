@@ -1,45 +1,54 @@
+var _player = entities[? my_id]
 if (keyboard_check(ord("A"))){
-	scr_send_key(KEY_LEFT, true)
-	scr_send_sprite(spr_character_running_left)
+	_player.keys[KEY_LEFT] = true
+	_player.sprite_index = spr_character_running_left
+	scr_send_location(_player.x, _player.y, spr_character_running_left)
 }
 
 if (keyboard_check_released(ord("A"))){
-	scr_send_key(KEY_LEFT, false)	
-	scr_send_sprite(spr_character_still_left)	
+	_player.keys[KEY_LEFT] = false	
+	_player.sprite_index = spr_character_still_left
+	scr_send_location(_player.x, _player.y, spr_character_still_left)	
 }
  
  if (keyboard_check(ord("D"))){
-	scr_send_key(KEY_RIGHT, true)	
-	scr_send_sprite(spr_character_running_right)
+	_player.keys[KEY_RIGHT] = true
+	_player.sprite_index = spr_character_running_right
+	scr_send_location(_player.x, _player.y, spr_character_running_right)
 }
 
 if (keyboard_check_released(ord("D"))){
-	scr_send_key(KEY_RIGHT, false)	
-	scr_send_sprite(spr_character_still_right)
+	_player.keys[KEY_RIGHT] = false
+	_player.sprite_index = spr_character_still_right
+	scr_send_location(_player.x, _player.y, spr_character_still_right)
 }
  
 if (keyboard_check(ord("W"))){
-	scr_send_key(KEY_UP, true)
-	scr_send_sprite(spr_character_running_up)
+	_player.keys[KEY_UP] = true
+	_player.sprite_index = spr_character_running_up
+	scr_send_location(_player.x, _player.y, spr_character_running_up)
 }
 
 if (keyboard_check_released(ord("W"))){
-	scr_send_key(KEY_UP, false)	
-	scr_send_sprite(spr_character_still_up)
+	_player.keys[KEY_UP] = false
+	_player.sprite_index = spr_character_still_up
+	scr_send_location(_player.x, _player.y, spr_character_still_up)
 }
  
  if (keyboard_check(ord("S"))){
-	scr_send_key(KEY_DOWN, true)
-	scr_send_sprite(spr_character_running_down)
+	_player.keys[KEY_DOWN] = true
+	_player.sprite_index = spr_character_running_down
+	scr_send_location(_player.x, _player.y, spr_character_running_down)
 }
 
 if (keyboard_check_released(ord("S"))){
-	scr_send_key(KEY_DOWN, false)	
-	scr_send_sprite(spr_character_still_down)
+	_player.keys[KEY_DOWN] = false
+	_player.sprite_index = spr_character_still_down
+	scr_send_location(_player.x, _player.y, spr_character_still_down)
 }
 
-for (var _i = 0; _i < instance_number(obj_remote_player); _i++){
-	var _instance = instance_find(obj_remote_player, _i)
+for (var _i = 0; _i < instance_number(obj_player); _i++){
+	var _instance = instance_find(obj_player, _i)
 	if (my_id == _instance.my_id){
 		target = _instance
 		break
