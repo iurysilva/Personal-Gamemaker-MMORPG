@@ -1,9 +1,6 @@
-function scr_send_dash(_x, _y, _sprite){
-	ds_map_add(data_to_send, "packetType", PACKET_DASH)
+function scr_send_disconnection(){
+	ds_map_add(data_to_send, "packetType", PACKET_DISCONNECTION)
 	ds_map_add(data_to_send, "id", my_id)
-	ds_map_add(data_to_send, "x", _x)
-	ds_map_add(data_to_send, "y", _y)
-	ds_map_add(data_to_send, "sprite", _sprite)
 	
 	var _json_data = json_encode(data_to_send)
 	ds_map_clear(data_to_send)

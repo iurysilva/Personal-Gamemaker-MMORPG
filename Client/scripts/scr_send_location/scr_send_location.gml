@@ -1,5 +1,5 @@
-function scr_send_dash(_x, _y, _sprite){
-	ds_map_add(data_to_send, "packetType", PACKET_DASH)
+function scr_send_location(_x, _y, _sprite){
+	ds_map_add(data_to_send, "packetType", PACKET_LOCATION)
 	ds_map_add(data_to_send, "id", my_id)
 	ds_map_add(data_to_send, "x", _x)
 	ds_map_add(data_to_send, "y", _y)
