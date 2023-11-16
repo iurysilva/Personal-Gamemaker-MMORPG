@@ -32,4 +32,4 @@ server.on("message", (message, client) => {
 })
 
 
-server.bind(45000, '0.0.0.0', () => (console.log("Server running...")))
+server.bind(45000, '127.0.0.1', () => (console.log("Server running...")))
